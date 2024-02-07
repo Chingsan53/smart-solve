@@ -1,30 +1,47 @@
 import { useEffect, useState } from "react";
 import "./currency-converter.component.scss";
 const CurrencyConverter = () => {
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState(1);
 
-  const [fromCur, setFromCur] = useState("EUR");
+  const [fromCur, setFromCur] = useState("AUD");
   const [toCur, setToCur] = useState("USD");
   const [converted, setConverted] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  useEffect(
-    function () {
-      async function convert() {
+  const [date, setDate] = useState("");
+  useEffect(() => {
+    async function convert() {
+      try {
         setIsLoading(true);
         const res = await fetch(
           `https://api.frankfurter.app/latest?amount=${amount}&from=${fromCur}&to=${toCur}`
         );
+        if (!res.ok) {
+          throw new Error(`API call failed: ${res.status}`);
+        }
         const data = await res.json();
-        setConverted(data.rates[toCur]);
-        console.log(data);
-        console.log(data.rates);
+        if (data.rates && data.rates.hasOwnProperty(toCur)) {
+          setConverted(data.rates[toCur]);
+          console.log(typeof(data.date));
+          setDate(data.date);
+        } else {
+          console.error('Rates or currency not found in response');
+          // Optionally set a default state or show an error message here
+        }
+      } catch (error) {
+        console.error('Error fetching data: ', error);
+        // Optionally handle the error here
+      } finally {
         setIsLoading(false);
       }
-      if (fromCur === toCur && fromCur === 0) return setConverted(amount);
+    }
+  
+    if (fromCur === toCur && fromCur === 0) {
+      setConverted(amount);
+    } else {
       convert();
-    },
-    [amount, fromCur, toCur]
-  );
+    }
+  }, [amount, fromCur, toCur, date]);
+  
 
   return (
     <div className="currency-converter">
@@ -60,6 +77,7 @@ const CurrencyConverter = () => {
       <p>
         {converted} {toCur}
       </p>
+      <p>Latest update: <span>{date}</span></p>
     </div>
   );
 };

@@ -10,35 +10,48 @@
   h2 {
     color: #333;
     margin-bottom: 15px;
+    font-size: 24px; /* Larger font size for the title */
   }
 
-  input[type="text"] {
-    padding: 10px;
+  input[type="text"], select {
+    padding: 15px; /* Increased padding for larger touch area */
     margin-bottom: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    width: 200px;
+    width: 100%;
     box-sizing: border-box;
+    font-size: 18px; /* Larger font size for easier reading */
   }
 
   select {
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
     background-color: white;
-    width: 215px;
-    box-sizing: border-box;
     cursor: pointer;
-
     option {
       padding: 10px;
+      font-size: 18px; /* Larger font size for options */
     }
   }
 
   p {
     margin-top: 10px;
-    font-size: 20px;
+    font-size: 22px; /* Larger font size for the result text */
     color: #444;
+  }
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 600px) {
+  .currency-converter {
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .currency-converter h2 {
+    font-size: 20px; /* Adjusted font size for smaller screens */
+  }
+
+  .currency-converter p {
+    font-size: 20px; /* Adjusted font size for smaller screens */
   }
 }
