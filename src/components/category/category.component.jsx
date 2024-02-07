@@ -14,7 +14,7 @@ const Category = () => {
             <img className="card-image" src="/img/currency.jpg" alt="" />
             <div className="card-title">Currency Converter</div>
           </Link>
-          <Link className="card" to="/tip-calculation">
+          <Link className="card" to="/tip-calculator">
             <img className="card-image" src="/img/tip-calculator.jpg" alt="" />
             <div className="card-title">Tips Calculation</div>
           </Link>
