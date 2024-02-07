@@ -9,7 +9,7 @@ const TipCalculator = () => {
         return parseFloat(num.toFixed(2));
     }
 
-    const calculateTotal = bill + ((bill * tip)/100);
+    const calculateTotal = parseFloat(bill) + (parseFloat(bill) * tip)/100;
     const divideWithPeople = calculateTotal/quantity;
     
 
@@ -19,7 +19,7 @@ const TipCalculator = () => {
             <p>Total Bill in USD: </p>
             <input type="text"
         value={bill}
-        onChange={(e) => setBill(Number(e.target.value))}></input>
+        onChange={(e) => setBill(e.target.value)}></input>
         </div>
         <p>How many people?</p>
         <select value={quantity} onChange={e => setQuantity(Number(e.target.value))}>{Array.from({length: 20}, (_, i) => i + 1).map((num) => (<option value={num} key={num}>
@@ -34,8 +34,9 @@ const TipCalculator = () => {
         </select>
         
 
-        <p>Total Bill after tips: {calculateTotal}</p>
-        <p>Each person will pay: {roundToTwoDecimals(divideWithPeople)} USD</p>
+        <p>Total Tips: $ {(bill * tip)/100}</p>
+        <p>Total Bill after tips: $ {calculateTotal}</p>
+        <p>Each person will pay: $ {roundToTwoDecimals(divideWithPeople)} </p>
 
     </div>
 }
