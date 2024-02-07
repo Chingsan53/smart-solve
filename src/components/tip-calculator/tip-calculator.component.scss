@@ -80,8 +80,16 @@ $text-light-color: #666; // Lighter Grey
 @media (max-width: 600px) {
     .tip-calculator {
         width: 100%;
-        padding: 15px;
+        padding: 10px;
+        box-sizing: border-box;
     }
+    .tip-calculator h2 {
+        font-size: 20px; /* Adjusted font size for smaller screens */
+      }
+    
+      .tip-calculator p {
+        font-size: 20px; /* Adjusted font size for smaller screens */
+      }
 }
 
 @keyframes fadeIn {
