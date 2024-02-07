@@ -18,9 +18,25 @@ const Category = () => {
             <img className="card-image" src="/img/tip-calculator.jpg" alt="" />
             <div className="card-title">Tips Calculation</div>
           </Link>
+          <Link className="card" to="/unit-converter">
+            <img className="card-image" src="/img/todo-list.jpg" alt="" />
+            <div className="card-title">Unit Converter</div>
+          </Link>
           <Link className="card" to="/todo-list">
             <img className="card-image" src="/img/todo-list.jpg" alt="" />
             <div className="card-title">Todo List</div>
+          </Link>
+          <Link className="card" to="/weather-forecast">
+            <img className="card-image" src="/img/todo-list.jpg" alt="" />
+            <div className="card-title">Weather Forecast</div>
+          </Link>
+          <Link className="card" to="/recipe-finder">
+            <img className="card-image" src="/img/todo-list.jpg" alt="" />
+            <div className="card-title">Recipe Finder</div>
+          </Link>
+          <Link className="card" to="/note-taking">
+            <img className="card-image" src="/img/todo-list.jpg" alt="" />
+            <div className="card-title">Note Taking</div>
           </Link>
         </div>
       </div>
